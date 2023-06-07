@@ -5,19 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Scrypt } from 'scrypt-ts'
 
+
 import { Voting } from './contracts/voting';
 var artifact = require('../artifacts/src/contracts/voting.json');
 Voting.loadArtifact(artifact);
 
 Scrypt.init({
   // https://docs.scrypt.io/advanced/how-to-integrate-scrypt-service#get-your-api-key
-  apiKey: 'YOUR_API_KEY',
+  apiKey: 'testnet_46VPti0qYpeaOvDNYpwvvKnnp0RmAD0bUQ6OkcL9OLPlTKNGn',
   network: 'testnet'
 })
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 
 root.render(
   <React.StrictMode>

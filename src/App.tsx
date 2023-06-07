@@ -26,10 +26,14 @@ import {
 import { Voting } from "./contracts/voting";
 import Footer from "./Footer";
 
+import Lottie from 'react-lottie';
+import cat from './cat.json'
+import dog from "./dog.json"
+
 // `npm run deploycontract` to get deployment transaction id
 const contract_id = {
   /** The deployment transaction id */
-  txId: "65d80537b63bc7fe12280826cdb9fa4424add5c08def0340ddc8444908c03d9e",
+  txId: "76dd2d5192d0033ce463ebe9647212cdcc7bf66a24325106629b3b44c734b096",
   /** The output index */
   outputIndex: 0,
 };
@@ -113,6 +117,24 @@ function App() {
     });
   };
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: cat,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
+  const newOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: dog,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
   async function voting(e: any) {
     handleSuccessClose(e);
     const signer = signerRef.current as SensiletSigner;
@@ -155,7 +177,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>What's your favorite phone?</h2>
+        <h2>Who is more cute?</h2>
       </header>
       <TableContainer
         component={Paper}
@@ -165,34 +187,40 @@ function App() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="center">iPhone</TableCell>
-              <TableCell align="center">Android</TableCell>
+              <TableCell align="center">Cat</TableCell>
+              <TableCell align="center">Dog</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow>
               <TableCell align="center">
                 <Box>
-                  <Box
+                <Lottie options={defaultOptions}
+              height={200}
+              width={200}/>
+                  {/* <Box
                     sx={{
                       height: 200,
                     }}
                     component="img"
                     alt={"iphone"}
                     src={`${process.env.PUBLIC_URL}/${"iphone"}.png`}
-                  />
+                  /> */}
                 </Box>
               </TableCell>
               <TableCell align="center">
                 <Box>
-                  <Box
+                <Lottie options={newOptions}
+              height={200}
+              width={200}/>
+                  {/* <Box
                     sx={{
                       height: 200,
                     }}
                     component="img"
                     alt={"android"}
                     src={`${process.env.PUBLIC_URL}/${"android"}.png`}
-                  />
+                  /> */}
                 </Box>
               </TableCell>
             </TableRow>
